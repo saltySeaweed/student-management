@@ -1,14 +1,22 @@
-#include <C:\Users\Vu Le\Documents\Github\student-management\src\sinhvien\StudentManagement.cpp>
-#include <C:\Users\Vu Le\Documents\Github\student-management\src\sinhvien\Student.cpp>
+#include <C:\Users\Dell\Documents\Github\student-management\src\sinhvien\StudentManagement.cpp>
+#include <C:\Users\Dell\Documents\Github\student-management\src\sinhvien\Student.cpp>
 #include <list>
-
+#include <conio.h>
 using namespace std;
+#include <iostream>
+
+    void pressAnyKey() {
+        cout << "\n\nBam phim bat ky de tiep tuc...";
+        getch();
+        system("cls");
+    }
 
 int main(){
     StudentManagement studentManagement;
-    std::list<Student> datas = studentManagement.readData("C:\Users\Vu Le\Documents\Github\student-management\data\du_lieu.txt");
+    std::list<Student> datas = studentManagement.readData("C:\\Users\\Dell\\Documents\\Github\\student-management\\data\\du_lieu.txt");
     while(true) {
-        std::cout << "CHUONG TRINH QUAN LY SINH VIEN C/C++\n";
+        int key;
+        cout << "CHUONG TRINH QUAN LY SINH VIEN C/C++\n";
         cout << "*************************MENU**************************\n";
         cout << "**  1. Them sinh vien.                               **\n";
         cout << "**  2. Xoa sinh vien boi ID.                         **\n";
@@ -38,9 +46,4 @@ int main(){
                 break;
         }
     }
-void pressAnyKey() {
-    cout << "\n\nBam phim bat ky de tiep tuc...";
-    getch();
-    system("cls");
-}
 }
