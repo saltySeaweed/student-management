@@ -13,7 +13,7 @@ using namespace std;
 
 int main(){
     StudentManagement studentManagement;
-    std::list<Student> datas = studentManagement.readData("C:\\Users\\Dell\\Documents\\Github\\student-management\\data\\du_lieu.txt");
+    list<Student> datas = studentManagement.readData("C:\\Users\\Dell\\Documents\\Github\\student-management\\data\\du_lieu.txt");
     while(true) {
         int key;
         cout << "CHUONG TRINH QUAN LY SINH VIEN C/C++\n";

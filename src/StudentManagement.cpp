@@ -29,17 +29,17 @@ public: void deleteStudent(string id){
 public: list<Student> readData(string path){
     ifstream ifs("C:\\Users\\Dell\\Documents\\Github\\student-management\\data\\du_lieu.txt");
     list<Student> datas;
+    Document d;
+    string s;
+    const char* json;
     if(!ifs){
         cerr << "Error: file not opened." << endl;
         return datas;
     }
-    Document d;
-    const char* json = "{\"project\":\"stdio_demo\",\"id\":12}";
-    //Đọc và in lần lượt các ký tự trong file
-    // while(ifs  >> json){ 
-        d.Parse(json);
-    // }
-    //Đóng file
+    while(ifs  >> s){
+         
+        json = s.c_str();
+    }
     ifs.close();
     static int index = datas.size();
     return datas;
