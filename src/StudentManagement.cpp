@@ -2,7 +2,7 @@
 #include <list>
 #include <fstream>
 #include <C:\Users\Dell\Documents\Github\student-management\ThirdParty\rapidjson\include\rapidjson\document.h>
-
+#include <bits/stdc++.h>
 using namespace std;
 using namespace rapidjson;
 
@@ -29,16 +29,32 @@ public: void deleteStudent(string id){
 public: list<Student> readData(string path){
     ifstream ifs("C:\\Users\\Dell\\Documents\\Github\\student-management\\data\\du_lieu.txt");
     list<Student> datas;
-    Document d;
-    string s;
+    Document doc;
+    string rawData;
     const char* json;
     if(!ifs){
         cerr << "Error: file not opened." << endl;
         return datas;
     }
-    while(ifs  >> s){
-         
-        json = s.c_str();
+    while(ifs  >> rawData){
+        list<string> data;
+        int currIndex = 0, i = 0;  
+        int startIndex = 0, endIndex = 0;  
+        char seperator = ';';
+        while (i <= rawData.size())  
+        {  
+            if(rawData[i] == seperator || i == rawData.size()){
+            endIndex = i;  
+            string subStr = "";  
+            subStr.append(rawData, startIndex, endIndex - startIndex);  
+            cout << subStr << "\n";
+            currIndex += 1;  
+            startIndex = endIndex + 1; 
+            }
+            i++;
+        }
+        // cout << split(rawData, ";");
+        json = rawData.c_str();
     }
     ifs.close();
     static int index = datas.size();
