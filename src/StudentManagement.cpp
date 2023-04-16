@@ -1,4 +1,4 @@
-#include <C:\Users\Dell\Documents\Github\student-management\src\sinhvien\Student.cpp>
+#include <C:\Users\Dell\Documents\Github\student-management\src\Student.cpp>
 #include <list>
 #include <fstream>
 #include <C:\Users\Dell\Documents\Github\student-management\ThirdParty\rapidjson\include\rapidjson\document.h>

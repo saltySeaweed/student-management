@@ -1,5 +1,5 @@
-#include <C:\Users\Dell\Documents\Github\student-management\src\sinhvien\StudentManagement.cpp>
-#include <C:\Users\Dell\Documents\Github\student-management\src\sinhvien\Student.cpp>
+#include <C:\Users\Dell\Documents\Github\student-management\src\StudentManagement.cpp>
+#include <C:\Users\Dell\Documents\Github\student-management\src\Student.cpp>
 #include <list>
 #include <conio.h>
 using namespace std;
