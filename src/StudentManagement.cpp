@@ -47,6 +47,15 @@ public: list<Student> readData(string path){
             endIndex = i;  
             string subStr = "";  
             subStr.append(rawData, startIndex, endIndex - startIndex);  
+            json = NULL;
+            json = subStr.c_str();
+            doc.Parse(json);
+            // Dat gia tri cho bien Student
+            Student sv = NULL;
+            sv.id = doc['id'].GetString();
+            sv.name = doc['name'].GetString();
+            sv.old = doc['old'].GetString();
+            sv.mssv = doc['mssv'].GetString();
             cout << subStr << "\n";
             currIndex += 1;  
             startIndex = endIndex + 1; 
@@ -54,11 +63,15 @@ public: list<Student> readData(string path){
             i++;
         }
         // cout << split(rawData, ";");
-        json = rawData.c_str();
+        // json = rawData.c_str();
     }
     ifs.close();
     static int index = datas.size();
     return datas;
+}
+
+public: void setData(){
+
 }
 
 
