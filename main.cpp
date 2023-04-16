@@ -27,6 +27,8 @@ int main(){
         cin >> key;
         switch(key){
             case 1:
+                cout << "\n1. Them sinh vien.";
+                studentManagement.addStudent(datas);
                 pressAnyKey();
                 break;
             case 2:
