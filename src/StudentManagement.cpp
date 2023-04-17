@@ -1,8 +1,10 @@
-#include <C:\Users\Dell\Documents\Github\student-management\src\Student.cpp>
+#include <C:\Users\Vu Le\Documents\Github\student-management\src\Student.cpp>
 #include <list>
 #include <fstream>
-#include <C:\Users\Dell\Documents\Github\student-management\ThirdParty\rapidjson\include\rapidjson\document.h>
+#include <C:\Users\Vu Le\Documents\Github\student-management\ThirdParty\rapidjson\include\rapidjson\document.h>
 #include <bits/stdc++.h>
+#include <typeinfo>
+
 using namespace std;
 using namespace rapidjson;
 
@@ -27,9 +29,8 @@ public: void deleteStudent(string id){
     
 }
 public: list<Student> readData(string path){
-    ifstream ifs("C:\\Users\\Dell\\Documents\\Github\\student-management\\data\\du_lieu.txt");
+    ifstream ifs(path);
     list<Student> datas;
-    Document doc;
     string rawData;
     const char* json;
     if(!ifs){
@@ -47,31 +48,42 @@ public: list<Student> readData(string path){
             endIndex = i;  
             string subStr = "";  
             subStr.append(rawData, startIndex, endIndex - startIndex);  
-            json = NULL;
-            json = subStr.c_str();
-            doc.Parse(json);
-            // Dat gia tri cho bien Student
-            Student sv = NULL;
-            sv.id = doc['id'].GetString();
-            sv.name = doc['name'].GetString();
-            sv.old = doc['old'].GetString();
-            sv.mssv = doc['mssv'].GetString();
-            cout << subStr << "\n";
             currIndex += 1;  
             startIndex = endIndex + 1; 
+            data.push_back(subStr);
             }
             i++;
         }
-        // cout << split(rawData, ";");
-        // json = rawData.c_str();
+        for (string s : data){
+            cout << "Check data member: " << s << "\n";
+            cout << "typeid(s).name(): " << typeid(s).name() << endl;
+            datas.push_back(setData(s));
+        }
     }
     ifs.close();
     static int index = datas.size();
     return datas;
 }
 
-public: void setData(){
-
+public: Student setData(string data){
+    // string s11 = "{\"project\":\"stdio_demo\",\"id\":12}";
+    const char* json = data.c_str();
+    cout << "check object json: " << json << "\n";
+    cout << "typeid(json).name(): " << typeid(json).name() << endl;
+    Document document;
+    document.Parse(json);
+    int s, s2, s3;
+    string s1;
+    s  = document["id"].GetInt();
+    s1 = document['name'].GetString();
+    s2 = document['old'].GetInt();
+    s3 = document['mssv'].GetInt();
+    Student student;
+    student.id = s;
+    student.name = s1;
+    student.old = s2;
+    student.mssv = s3;
+    return student;
 }
 
 

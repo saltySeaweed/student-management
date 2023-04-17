@@ -1,0 +1,7 @@
+char *: cung cấp một địa chỉ cho 
+thêm & để xem địa chỉ của biến và khi C++ muốn thay đổi giá trị của biến thì nó cần có địa chỉ của biến đó
+địa chỉ của con trỏ khác địa chỉ mà nó trỏ vào
+thay đổi giá trị của con trỏ sẽ thay đổi giá trị của biến nó trỏ tới
+p : giá trị con trỏ
+*p: giá trị con trỏ đang trỏ tới
+&p: địa chỉ của con trỏ

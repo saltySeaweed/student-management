@@ -7,7 +7,7 @@ class Student  {
     public: 
         int id;
         string name;
-        string old;
-        string mssv;
+        int old;
+        int mssv;
 
 };
