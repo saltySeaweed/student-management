@@ -13,7 +13,7 @@ using namespace std;
 
 int main(){
     StudentManagement studentManagement;
-    list<Student> datas = studentManagement.readData("C:\\Users\\Vu Le\\Documents\\Github\\student-management\\data\\du_lieu.txt");
+    list<Student> datas = studentManagement.readData("C:\\Users\\Vu Le\\Documents\\Github\\student-management\\data\\du_lieu_don_gian.txt");
     while(true) {
         int key;
         cout << "CHUONG TRINH QUAN LY SINH VIEN C++\n";
@@ -32,9 +32,27 @@ int main(){
                 pressAnyKey();
                 break;
             case 2:
+            if(datas.size() > 0) {
+                int mssv;
+                cout << "\n3. Xoa sinh vien.";
+                cout << "\n Nhap mssv: "; cin >> mssv;
+                if (studentManagement.deleteStudent(datas, mssv) == 1) {
+                    printf("\nSinh vien co mssv = %d da bi xoa.", mssv);
+                }
+            } else {
+                cout << "\nSanh sach sinh vien trong!";
+            }
                 pressAnyKey();
                 break;
             case 3:
+            if(datas.size() > 0) {
+                cout << "\n3. Tim kiem sinh vien theo ten.";
+                char strTen[30];
+                cout << "\nNhap ten de tim kiem: "; fflush(stdin); gets(strTen);
+                studentManagement.searchStudent(datas, strTen);
+            } else {
+                cout << "\nSanh sach sinh vien trong!";
+            }
                 pressAnyKey();
                 break;
             case 0:
